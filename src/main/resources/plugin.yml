@@ -1,0 +1,7 @@
+name: BungeeDeathMessage
+version: '${project.version}'
+main: de.crafttogether.bungeedeathmessage.BungeeDeathMessage
+api-version: 1.19
+authors: [ J0schlZ ]
+description: Broadcasts Death and Advancement notices across a Bungeecord network
+website: https://craft-together-mc.de
