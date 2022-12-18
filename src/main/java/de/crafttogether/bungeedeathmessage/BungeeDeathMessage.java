@@ -22,6 +22,7 @@ public final class BungeeDeathMessage extends JavaPlugin implements PluginMessag
     @Override
     public void onEnable() {
         plugin = this;
+        saveDefaultConfig();
 
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);

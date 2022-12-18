@@ -3,6 +3,7 @@ package de.crafttogether.bungeedeathmessage.listener;
 import de.crafttogether.bungeedeathmessage.BungeeDeathMessage;
 import io.papermc.paper.advancement.AdvancementDisplay;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.HoverEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -27,6 +28,11 @@ public class PlayerAdvancementListener implements Listener {
             case GOAL -> Component.translatable("chat.type.advancement.goal", Component.text(player.getName()), event.getAdvancement().displayName());
             case TASK -> Component.translatable("chat.type.advancement.task", Component.text(player.getName()), event.getAdvancement().displayName());
         };
+
+        Component hover = Component.text(player.getName())
+                .append(Component.newline())
+                .append(Component.text("Server: " + plugin.getConfig().getString("serverName")));
+        component = component.hoverEvent(HoverEvent.hoverEvent(HoverEvent.Action.SHOW_TEXT, hover));
 
         plugin.send(component);
     }
